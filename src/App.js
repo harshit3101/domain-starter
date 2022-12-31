@@ -377,17 +377,20 @@ const App = () => {
                 </div>
 
                 {!currentAccount && renderNotConnectedContainer()}
-                <div className="button-container">
-                    <button className='cta-button mint-button' hidden={showMunnaBhaiya} onClick={updateMunnaBhaiya}>
-                        Show Munna Bhaiya
-                    </button>
+                { currentAccount &&
+                    <div className="button-container">
+                        <button className='cta-button mint-button' hidden={showMunnaBhaiya} onClick={updateMunnaBhaiya}>
+                            Show Munna Bhaiya
+                        </button>
 
-                    <button className='cta-button mint-button' hidden={!showMunnaBhaiya} onClick={updateMunnaBhaiya}>
-                        Hide Munna Bhaiya
-                    </button>
+                        <button className='cta-button mint-button' hidden={!showMunnaBhaiya} onClick={updateMunnaBhaiya}>
+                            Hide Munna Bhaiya
+                        </button>
 
-                    {currentAccount && showMunnaBhaiya && renderConnectedContainer()}
-                </div>
+                        {showMunnaBhaiya && renderConnectedContainer()}
+                    </div>
+                }
+
 
 
                 {currentAccount && renderInputForm()}
